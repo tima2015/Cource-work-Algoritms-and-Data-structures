@@ -1,0 +1,66 @@
+# Analysis.hpp Measurement.hpp Sort.hpp Writer.hpp
+!Analysis.cpp Analysis.hpp Measurement.hpp Sort.hpp #<#>
+!Analysis.hpp Measurement.hpp ctime time.h #<#>
+!Measurement.cpp Measurement.hpp cctype cerrno clocale cmath cstdint cstdio cstdlib ctime ctype.h cwchar errno.h exception initializer_list iosfwd limits limits.h locale.h math.h new numeric random signal.h stddef.h stdint.h stdio.h stdlib.h string string_view time.h type_traits typeinfo utility vector wchar.h #<#>
+!Measurement.hpp ctime time.h #<#>
+!Sort.cpp Sort.hpp #<#>
+!Writer.cpp Analysis.hpp Writer.hpp cctype cerrno clocale cstdint cstdio cstdlib ctime ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error time.h type_traits typeinfo wchar.h wctype.h #<#>
+!Writer.hpp Analysis.hpp Measurement.hpp cctype cerrno clocale cstdint cstdio cstdlib ctime ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error time.h type_traits typeinfo wchar.h wctype.h #<#>
+!main.cpp Analysis.hpp Measurement.hpp Writer.hpp cctype cerrno clocale conio.h cstdint cstdio cstdlib ctime ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error time.h type_traits typeinfo wchar.h wctype.h #<#>
+ : Measurement #<Measurement.hpp>
+Analysis _type_ #<Analysis.hpp>
+Analysis() -> virtual~ #<Analysis.hpp>
+Analysis(unsigned int N) #<Analysis.hpp>
+DETAIL_TXT_WRITER #<main.cpp>
+DetailTxtWriter _type_ #<Writer.hpp>
+DetailTxtWriter(unsigned int N, unsigned int L) #<Writer.hpp>
+JSON_WRITER #<main.cpp>
+JsonWriter _type_ #<Writer.hpp>
+JsonWriter(unsigned int N, unsigned int L) #<Writer.hpp>
+MAX #<Measurement.cpp>
+Measurement _type_ #<Measurement.hpp>
+Measurement() -> virtual~ #<Measurement.hpp>
+Measurement(const Measurement& orig) #<Measurement.hpp>
+Measurement(unsigned int size) #<Measurement.hpp>
+TXT_WRITER #<main.cpp>
+TxtWriter _type_ #<Writer.hpp>
+TxtWriter(unsigned int N, unsigned int L) #<Writer.hpp>
+Writer _type_ #<Writer.hpp>
+Writer() -> virtual~ #<Writer.hpp>
+bubbleSort(int* array, int n) -> void #<Sort.hpp>
+main(int argc, char** argv) -> int #<main.cpp>
+quickSort(int* array, int first, int last) -> void #<Sort.hpp>
+takeAnalysis(unsigned int N, unsigned int L, unsigned int outformat) -> void #<main.cpp>
+uiMod() -> void #<main.cpp>
+	Analysis:%bubble : Measurement* #<Analysis.hpp>
+	Analysis:%quick : Measurement* #<Analysis.hpp>
+	Analysis:%N : unsigned int #<Analysis.hpp>
+	Analysis=:getBubbleMeasurement() -> Measurement* #<Analysis.hpp>
+	Analysis=:getQuickMeasurement() -> Measurement* #<Analysis.hpp>
+	DetailTxtWriter:%printArray(int* array) -> void #<Writer.hpp>
+	DetailTxtWriter:%L : unsigned int i=1, #<Writer.hpp>
+	DetailTxtWriter:%N : unsigned int i #<Writer.hpp>
+	DetailTxtWriter:%outfile : std::ofstream #<Writer.hpp>
+	DetailTxtWriter::write(Analysis* a) -> void #<Writer.hpp>
+	DetailTxtWriter::write(Analysis* a) -> virtual void #<Writer.hpp>
+	JsonWriter:%L : unsigned int i=1, #<Writer.hpp>
+	JsonWriter:%outfile : std::ofstream #<Writer.hpp>
+	JsonWriter::write(Analysis* a) -> void #<Writer.hpp>
+	JsonWriter::write(Analysis* a) -> virtual void #<Writer.hpp>
+	Measurement:%rowArray : int* #<Measurement.hpp>
+	Measurement:%array : int* #<Measurement.hpp>
+	Measurement:%size : unsigned int #<Measurement.hpp>
+	Measurement:% : clock_t beginTime=0, endTime=0;};#endif//MEASUREMENT_HPP #<Measurement.hpp>
+	Measurement::begin() -> void #<Measurement.hpp>
+	Measurement::end() -> void #<Measurement.hpp>
+	Measurement=:getRowArray() -> int* #<Measurement.hpp>
+	Measurement=:getArray() -> int* #<Measurement.hpp>
+	Measurement=:getArraySize() -> unsigned int #<Measurement.hpp>
+	Measurement=:getBeginTime() -> clock_t #<Measurement.hpp>
+	Measurement=:getEndTime() -> clock_t #<Measurement.hpp>
+	Measurement=:getDeltaTime() -> clock_t #<Measurement.hpp>
+	TxtWriter:%outfile : std::ofstream #<Writer.hpp>
+	TxtWriter::write(Analysis* a) -> void #<Writer.hpp>
+	TxtWriter::write(Analysis* a) -> virtual void #<Writer.hpp>
+	Writer:%outfile : std::ofstream #<Writer.hpp>
+	Writer::write(Analysis* a) -> virtual void #<Writer.hpp>

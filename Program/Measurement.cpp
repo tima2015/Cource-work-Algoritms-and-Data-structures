@@ -1,74 +1,60 @@
 #include "Measurement.hpp"
-#include <timeapi.h>
+#include <random>
 
-Measurement::Measurement(int* rowArray, int size) : size(size){
-	this->rowArray = new int[size];
-	for(int i = 0; i < size; i++)
-		this->rowArray[i] = rowArray[i];
+#define MAX 999999999 //Максимально возможное сгенерированное число
+
+Measurement::Measurement(unsigned int size) : size(size) {
+	static std::default_random_engine dre(time(0));
+	array = new int[size];
+	rowArray = new int[size];
+	for (int i = 0; i < size; i++) {
+		array[i] = rowArray[i] = dre() % MAX;
+	}
 }
 
-Measurement::~Measurement(){
+Measurement::Measurement(const Measurement &orig){
+	size = orig.size;
+	array = new int[size];
+	rowArray = new int[size];
+	for (int i = 0; i < size; i++) {
+		array[i] = orig.array[i];
+		rowArray[i] = orig.array[i];
+	}
+}
+
+Measurement::~Measurement() {
+	delete[] array;
 	delete[] rowArray;
-	delete[] resultArray;
 }
 
-void Measurement::begin(){
-	beginTime = timeGetTime();
+void Measurement::begin() {
+	beginTime = clock();
 }
 
-void Measurement::end(int* resultArray){
-	endTime = timeGetTime();
-	this->resultArray = new int[size];
-	for(int i = 0; i < size; i++)
-		this->resultArray[i] = resultArray[i];
+void Measurement::end() {
+	endTime = clock();
 }
 
-int* Measurement::getRowArray() const{
+int *Measurement::getRowArray() const {
 	return rowArray;
 }
 
-int* Measurement::getResultArray() const{
-	return resultArray;
+int* Measurement::getArray() const{
+	return array;
 }
 
-int Measurement::getArraySize() const{
+unsigned int Measurement::getArraySize() const {
 	return size;
 }
 
-int Measurement::getBeginTime() const{
+clock_t Measurement::getBeginTime() const {
 	return beginTime;
 }
 
-int Measurement::getEndTime() const{
+clock_t Measurement::getEndTime() const {
 	return endTime;
 }
 
-int Measurement::getDeltaTime() const{
+clock_t Measurement::getDeltaTime() const {
 	return endTime - beginTime;
-}
-
-string Measurement::toJsonString() const{
-	string out;
-	out += "{\n\"rowArray\": [\n";
-	for (int i = 0; i < size - 1; i++){
-		out += rowArray[i];
-		out += ",\n"
-	}
-	out += rowArray[size - 1];
-	out += "\n],\n\"resultArray\": [\n";
-	for (int i = 0; i < size - 1; i++){
-		out += resultArray[i];
-		out += ",\n"
-	}
-	out += resultArray[size - 1];
-	out += "\n],\n\"size\": ";
-	out += size;
-	out += ",\n\"beginTime\": ";
-	out += beginTime;
-	out += ",\n\"endTime\": ";
-	out += endTime;
-	out += ",\n\"deltaTime\": ";
-	out += getDeltaTime();
-	out += "\n}";
-	return out;
 }
