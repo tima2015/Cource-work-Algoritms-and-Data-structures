@@ -1,0 +1,16 @@
+{
+	"N" : 6256,
+	"L" : 10,
+	"Measurements": [
+		{ "bubble" : 90, "quick" : 0},
+		{ "bubble" : 86, "quick" : 2},
+		{ "bubble" : 172, "quick" : 1},
+		{ "bubble" : 153, "quick" : 0},
+		{ "bubble" : 127, "quick" : 0},
+		{ "bubble" : 131, "quick" : 1},
+		{ "bubble" : 133, "quick" : 1},
+		{ "bubble" : 109, "quick" : 4},
+		{ "bubble" : 168, "quick" : 0},
+		{ "bubble" : 142, "quick" : 1}
+	]
+}
