@@ -41,7 +41,7 @@ public class Chart {
         this.test = test;
         JFreeChart chart = createChart();
         JFrame frame = new JFrame();
-        ChartPanel comp = new ChartPanel(chart);
+        ChartPanel comp = new ChartPanel(chart,true,true,true,true,true);
         comp.setFillZoomRectangle(true);
         comp.setMouseWheelEnabled(true);
         frame.add(comp);
@@ -55,8 +55,8 @@ public class Chart {
         XYSeries quick = new XYSeries("Quick");
         for (int i = 0; i < test.getL(); i++) {
             Data data = test.getData()[i];
-            bubble.add(i,data.bubble);
-            quick.add(i,data.quick);
+            bubble.add(i,Math.log(data.bubble));
+            quick.add(i,Math.log(data.quick));
         }
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(bubble);
@@ -66,7 +66,7 @@ public class Chart {
 
     private JFreeChart createChart(){
 
-        return ChartFactory.createXYLineChart("Скорость алгоритмов сортировки","Номер теста","Время",createDataset(), PlotOrientation.VERTICAL,true, true,false);
+        return ChartFactory.createXYLineChart("Скорость алгоритмов сортировки","Номер теста","Время, log10(t)",createDataset(), PlotOrientation.VERTICAL,true, true,false);
     }
 
 }

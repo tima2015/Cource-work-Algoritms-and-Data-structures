@@ -163,7 +163,7 @@ public class GUIController {
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
-                    currentSize = Math.min(currentSize + tact, maxSize);
+                    currentSize = Math.min(currentSize + tact, maxSize+1);
                     progress.setProgress(i++/progressMax);
                 }
                 progressM.setVisible(false);

@@ -32,7 +32,7 @@ public class MultyChart {
     public MultyChart(File dir) {
         JFreeChart chart = createChart(dir);
         JFrame frame = new JFrame();
-        ChartPanel comp = new ChartPanel(chart);
+        ChartPanel comp = new ChartPanel(chart,true, true, true, true, true);
         comp.setFillZoomRectangle(true);
         comp.setMouseWheelEnabled(true);
         frame.add(comp);
@@ -61,7 +61,7 @@ public class MultyChart {
     }
 
     private JFreeChart createChart(File dir){
-        JFreeChart chart = ChartFactory.createXYLineChart("Скорость алгоритмов сортировки","Размер массива","Время",createDataset(dir), PlotOrientation.VERTICAL,true, true,false);
+        JFreeChart chart = ChartFactory.createXYLineChart("Скорость алгоритмов сортировки","Размер массива, log10(N)","Время, log10(t)",createDataset(dir), PlotOrientation.VERTICAL,true, true,false);
 
         return chart;
     }
