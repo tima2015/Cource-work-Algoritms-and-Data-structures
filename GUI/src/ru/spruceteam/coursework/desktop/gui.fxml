@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.spruceteam.coursework.desktop.GUIController">
+   <children>
+      <AnchorPane fx:id="mainmenu" prefHeight="244.0">
+         <children>
+            <RadioButton fx:id="single" layoutX="8.0" layoutY="43.0" mnemonicParsing="false" onAction="#onSingle" selected="true" text="одного размера" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="44.0" />
+            <RadioButton fx:id="multy" layoutX="8.0" layoutY="61.0" mnemonicParsing="false" onAction="#onMulty" text="нескольких размеров" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="66.0" />
+            <RadioButton fx:id="singlefile" layoutX="8.0" layoutY="78.0" mnemonicParsing="false" onAction="#onSingleFile" text="одного размера из файла" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="88.0" />
+            <RadioButton fx:id="multyfile" layoutX="8.0" layoutY="95.0" mnemonicParsing="false" onAction="#onMultyFile" text="неск. размеров из папки" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="110.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="График сравнения алгоритмов" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+            <Button layoutX="114.0" layoutY="205.0" mnemonicParsing="false" onAction="#onNext" text="Далее" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+            <Label layoutX="9.0" layoutY="25.0" text="сортировки массивов:" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="26.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="multyMenu" prefHeight="244.0" visible="false">
+         <children>
+            <Label layoutX="11.0" layoutY="14.0" text="Начальный размер массива" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
+            <TextField fx:id="multyMinSize" layoutX="11.0" layoutY="25.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="24.0" />
+            <TextField fx:id="multyMaxSize" layoutX="8.0" layoutY="75.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="75.0" />
+            <TextField fx:id="multyTact" layoutX="8.0" layoutY="127.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="127.0" />
+            <Label layoutX="8.0" layoutY="58.0" text="Конечный размер массива" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="58.0" />
+            <Label layoutX="6.0" layoutY="110.0" text="Шаг размера массива" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="110.0" />
+            <Label layoutX="4.0" layoutY="159.0" text="Количество тестов на размер" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="160.0" />
+            <Button layoutX="8.0" layoutY="215.0" mnemonicParsing="false" onAction="#onBack" text="Назад" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" />
+            <Button layoutX="137.0" layoutY="215.0" mnemonicParsing="false" onAction="#onMultyTestStart" text="Начать тест" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+            <TextField fx:id="multyTestN" layoutX="8.0" layoutY="177.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="177.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="simpleMenu" prefHeight="244.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Размер массива" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
+            <TextField fx:id="singleSize" layoutX="8.0" layoutY="25.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="25.0" />
+            <TextField fx:id="singleTestN" layoutX="8.0" layoutY="75.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="75.0" />
+            <Label layoutX="8.0" layoutY="57.0" text="Количество тестов" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="58.0" />
+            <Button layoutX="118.0" layoutY="205.0" mnemonicParsing="false" onAction="#onSingleTestStart" text="Начать тест" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+            <Button layoutX="14.0" layoutY="205.0" mnemonicParsing="false" onAction="#onBack" text="Назад" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="progressM" prefHeight="244.0" visible="false">
+         <children>
+            <ProgressIndicator fx:id="progress" layoutX="79.0" layoutY="91.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" progress="0.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label layoutX="78.0" layoutY="14.0" text="Дождитесь окончания тестов" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="16.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
